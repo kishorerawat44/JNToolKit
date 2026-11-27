@@ -213,7 +213,6 @@
 <span>PDF • Image • Document • Calculators • Productivity • Student Tools</span>
 </div>
 </footer>
-<div class="toast" id="toast">Tool page can be connected here next.</div>
 <script>
     const searchInput = document.getElementById('searchInput');
     const categorySelect = document.getElementById('categorySelect');
@@ -221,9 +220,6 @@
     const toolsGrid = document.getElementById('toolsGrid');
     const cards = Array.from(document.querySelectorAll('.tool-card'));
     const emptyState = document.getElementById('emptyState');
-    const toast = document.getElementById('toast');
-    let toastTimer;
-
     document.getElementById('year').textContent = new Date().getFullYear();
 
     cards.forEach((card, index) => {
@@ -322,17 +318,6 @@
     });
 
     searchInput.addEventListener('input', filterTools);
-
-    cards.forEach(card => {
-      card.addEventListener('click', event => {
-        const href = card.getAttribute('href');
-        if (href && href !== '#') return;
-        event.preventDefault();
-        clearTimeout(toastTimer);
-        toast.classList.add('show');
-        toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
-      });
-    });
 
     filterTools();
   </script>

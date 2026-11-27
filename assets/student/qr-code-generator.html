@@ -358,7 +358,7 @@
         const bgY = Math.max(0, y - padding);
         const bgSize = Math.min(canvasSize - bgX, logoSize + padding * 2);
         rects += `<rect x="${bgX}" y="${bgY}" width="${bgSize}" height="${bgSize}" rx="${Math.max(10, bgSize * 0.18)}" fill="${bgColor}"/>`;
-        rects += `<image href="${logoDataUrl}" x="${x}" y="${y}" width="${logoSize}" height="${logoSize}" preserveAspectRatio="xMidYMid meet"/>`;
+        rects += `<image href="${escapeXml(logoDataUrl)}" x="${x}" y="${y}" width="${logoSize}" height="${logoSize}" preserveAspectRatio="xMidYMid meet"/>`;
       }
 
       return `<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" width="${canvasSize}" height="${canvasSize}" viewBox="0 0 ${canvasSize} ${canvasSize}">${rects}</svg>`;
